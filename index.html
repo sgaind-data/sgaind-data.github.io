@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sarika Gaind | Generative AI Engineer, Data Engineer, Data &amp; Business Analyst</title>
+  <meta name="description" content="Sarika Gaind builds evaluated LLM systems (RAG, LangGraph agents, fine-tuned models) and data pipelines on Databricks, Snowflake, Redshift and dbt, and turns analysis into business decisions.">
+  <meta name="author" content="Sarika Gaind">
+  <meta name="theme-color" content="#E6ECEA">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Sarika Gaind | Generative AI Engineer, Data Engineer, Data &amp; Business Analyst">
+  <meta property="og:url" content="https://sgaind-data.github.io/">
+  <meta property="og:image" content="https://sgaind-data.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sarika Gaind, Generative AI Engineer, Data Engineer, Data and Business Analyst">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://sgaind-data.github.io/og-image.png">
+  <meta property="og:description" content="RAG, LangGraph agents, LLM evaluation, Databricks, Snowflake, dbt, and Power BI.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23121A26'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%2311645E' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%2398A6C2' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23E2A93B'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Petrona:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Reddit+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   Sarika Gaind portfolio: "Pipeline Layers"
+   The page reads like a data pipeline. Each layer has its own ground:
+     Ingest     (who I am)            sea-mist with deep teal
+     Transform  (what I have built)   cool slate with steel blue
+     Serve      (ready to engage)     night navy with signal amber
+   ========================================================================== */
+
+:root {
+  /* Collect layer */
+  --b-ground: #E6ECEA;
+  --b-ink:    #17221F;
+  --b-muted:  #4A5A55;
+  --teal:   #11645E;
+  --teal-deep: #0B4A45;
+  --b-line:   #C7D4D0;
+
+  /* Detect layer */
+  --s-ground: #E4E8F0;
+  --s-surface:#F7F9FC;
+  --s-ink:    #1A2130;
+  --s-muted:  #4C5669;
+  --steel:    #3F5079;
+  --slate:   #98A6C2;
+  --s-line:   #C7CEDC;
+
+  /* Respond layer */
+  --g-ground: #121A26;
+  --g-surface:#1B2535;
+  --g-ink:    #E9EEF5;
+  --g-muted:  #AEB9C9;
+  --amber:     #E2A93B;
+  --amber-soft:#F2CD84;
+  --g-line:   #2E3A4E;
+
+  --f-display: "Petrona", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-text:    "Onest", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono:    "Reddit Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --wrap: 1200px;
+  --pad: clamp(1.25rem, 4vw, 3rem);
+  --r-sm: 4px;
+  --r-md: 8px;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 5rem); -webkit-text-size-adjust: 100%; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body {
+  margin: 0;
+  font-family: var(--f-text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--b-ink);
+  background: var(--g-ground);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+figure { margin: 0; }
+a { color: inherit; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 700; line-height: 1.1; }
+p { margin: 0; }
+svg { width: 1em; height: 1em; flex: none; }
+button, select, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 2px; }
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip {
+  position: fixed; left: 1rem; top: -4rem; z-index: 100;
+  background: var(--g-ground); color: var(--g-ink); padding: .6rem 1rem; border-radius: var(--r-sm);
+  text-decoration: none; font-weight: 600;
+}
+.skip:focus { top: calc(env(safe-area-inset-top, 0px) + 1rem); }
+
+/* ---------- Tier grounds ---------- */
+.tier { position: relative; }
+.tier--collect { background: var(--b-ground); color: var(--b-ink); --accent: var(--teal); --muted: var(--b-muted); --line: var(--b-line); }
+.tier--detect { background: var(--s-ground); color: var(--s-ink); --accent: var(--steel); --muted: var(--s-muted); --line: var(--s-line); }
+.tier--respond   { background: var(--g-ground); color: var(--g-ink); --accent: var(--amber); --muted: var(--g-muted); --line: var(--g-line); }
+
+/* Tier seam: a thin band that names the handoff between layers */
+.tier--detect::before, .tier--respond::before {
+  content: ""; display: block; height: 6px;
+  background: linear-gradient(90deg, var(--teal) 0 33.33%, var(--slate) 33.33% 66.66%, var(--amber) 66.66%);
+}
+
+/* ---------- Section scaffolding ---------- */
+.sec { max-width: var(--wrap); margin: 0 auto; padding: clamp(4rem, 9vw, 7rem) var(--pad); }
+.sec__head { margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 60ch; }
+.sec__head--split { max-width: none; display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; align-items: end; justify-content: space-between; }
+.sec__head--split > div:first-child { max-width: 60ch; }
+.sec h2 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); letter-spacing: -0.015em; font-weight: 700; }
+.sec__sub { margin-top: .75rem; color: var(--muted); font-size: 1.05rem; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .85rem 1.35rem; border-radius: 999px;
+  font-weight: 600; font-size: 1rem; text-decoration: none;
+  border: 2px solid transparent; transition: background-color .2s, color .2s, border-color .2s;
+}
+.btn svg { width: 1.15em; height: 1.15em; }
+.btn--solid { background: var(--b-ink); color: var(--b-ground); }
+.btn--solid:hover { background: var(--teal-deep); }
+.btn--line { border-color: var(--b-ink); color: var(--b-ink); }
+.btn--line:hover { background: var(--b-ink); color: var(--b-ground); }
+.btn--amber { background: var(--amber); color: var(--g-ground); }
+.btn--amber:hover { background: var(--amber-soft); }
+
+/* ==========================================================================
+   Tier readout (floating nav)
+   ========================================================================== */
+.readout {
+  position: fixed; z-index: 50;
+  top: calc(env(safe-area-inset-top, 0px) + .9rem); left: 50%; transform: translateX(-50%);
+  --coin: var(--teal);
+}
+.readout__btn {
+  display: flex; align-items: center; gap: .75rem;
+  padding: .5rem .9rem .5rem .55rem; min-width: 15.5rem;
+  background: rgba(18, 26, 38, .94); color: var(--g-ink);
+  border: 1px solid rgba(255, 255, 255, .14); border-radius: 999px; cursor: pointer;
+  box-shadow: 0 10px 30px -12px rgba(8, 14, 22, .55);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.readout__coin {
+  width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.55), transparent 45%), var(--coin);
+  box-shadow: inset 0 0 0 3px rgba(0,0,0,.18); transition: background-color .4s;
+}
+.readout__text { display: grid; line-height: 1.2; text-align: left; flex: 1; }
+.readout__tier { font-size: .78rem; color: var(--g-muted); }
+.readout__sec { font-weight: 600; font-size: .95rem; }
+.readout__icon { width: 1.2rem; height: 1.2rem; color: var(--g-muted); }
+.readout__bar {
+  position: absolute; left: 1.4rem; right: 1.4rem; bottom: -5px; height: 3px;
+  border-radius: 3px; background: rgba(110, 125, 145, .35); overflow: hidden;
+}
+.readout__bar i {
+  display: block; height: 100%; width: 100%; transform-origin: left; transform: scaleX(var(--p, 0));
+  background: linear-gradient(90deg, var(--teal), var(--slate), var(--amber));
+}
+
+.lineage {
+  position: absolute; top: calc(100% + .9rem); left: 50%; transform: translateX(-50%);
+  width: min(44rem, calc(100vw - 2rem));
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  background: var(--s-surface); color: var(--s-ink);
+  border: 1px solid var(--s-line); border-radius: var(--r-md);
+  box-shadow: 0 24px 60px -24px rgba(8, 14, 22, .5);
+  overflow: hidden;
+}
+.lineage[hidden] { display: none; }
+.lineage__tier { padding: 1.1rem 1.2rem 1.2rem; border-top: 4px solid var(--c); }
+.lineage__tier + .lineage__tier { border-left: 1px solid var(--s-line); }
+.lineage__tier[data-tier="collect"] { --c: var(--teal); }
+.lineage__tier[data-tier="detect"] { --c: var(--slate); }
+.lineage__tier[data-tier="respond"]   { --c: var(--amber); }
+.lineage__name { font-family: var(--f-display); font-weight: 700; font-size: 1.2rem; margin-bottom: .5rem; }
+.lineage__name span { display: block; font-family: var(--f-text); font-weight: 400; font-size: .85rem; color: var(--s-muted); }
+.lineage a {
+  display: block; padding: .4rem .5rem; margin: 0 -.5rem; border-radius: var(--r-sm);
+  text-decoration: none; font-weight: 500;
+}
+.lineage a:hover { background: var(--s-ground); }
+.lineage a[aria-current="true"] { background: var(--s-ground); box-shadow: inset 3px 0 0 var(--c); }
+
+/* ---------- Jump button ---------- */
+.jump {
+  position: fixed; z-index: 50;
+  top: calc(env(safe-area-inset-top, 0px) + 1.1rem); right: 1.1rem;
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .55rem .8rem; border-radius: 999px; cursor: pointer;
+  background: rgba(18, 26, 38, .94); color: var(--g-ink);
+  border: 1px solid rgba(255, 255, 255, .14);
+}
+.jump svg { width: 1.05rem; height: 1.05rem; }
+.jump kbd {
+  font-family: var(--f-mono); font-size: .72rem; padding: .1rem .4rem;
+  border: 1px solid rgba(255,255,255,.25); border-radius: var(--r-sm); color: var(--g-muted);
+}
+
+/* ---------- Command palette ---------- */
+.palette {
+  border: 0; padding: 0; background: transparent; width: min(38rem, calc(100vw - 2rem));
+  margin: 12vh auto auto; color: var(--s-ink);
+}
+.palette::backdrop { background: rgba(8, 14, 22, .55); }
+.palette__box { background: var(--s-surface); border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--s-line); }
+.palette__head { display: flex; align-items: center; gap: .7rem; padding: .9rem 1rem; border-bottom: 1px solid var(--s-line); }
+.palette__head > svg { width: 1.2rem; height: 1.2rem; color: var(--s-muted); }
+.palette__head input { flex: 1; border: 0; background: transparent; font-size: 1.05rem; padding: .3rem 0; min-width: 0; }
+.palette__head input:focus { outline: none; }
+.palette__close { border: 0; background: none; cursor: pointer; padding: .3rem; color: var(--s-muted); border-radius: var(--r-sm); }
+.palette__close svg { width: 1.2rem; height: 1.2rem; }
+.palette__list { max-height: 50vh; overflow-y: auto; padding: .4rem; }
+.palette__list li {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding: .6rem .75rem; border-radius: var(--r-sm); cursor: pointer;
+}
+.palette__list li[aria-selected="true"] { background: var(--s-ground); box-shadow: inset 3px 0 0 var(--steel); }
+.palette__list .kind { font-size: .82rem; color: var(--s-muted); flex: none; }
+.palette__list .empty { color: var(--s-muted); cursor: default; }
+.palette__hint { font-size: .82rem; color: var(--s-muted); padding: .6rem 1rem; border-top: 1px solid var(--s-line); }
+
+/* ==========================================================================
+   COLLECT: hero
+   ========================================================================== */
+.hero {
+  max-width: var(--wrap); margin: 0 auto;
+  padding: clamp(6.5rem, 12vw, 8.5rem) var(--pad) clamp(3rem, 6vw, 4.5rem);
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
+}
+.hero__loc { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; color: var(--b-muted); font-weight: 500; }
+.hero__loc svg { color: var(--teal); width: 1.1rem; height: 1.1rem; }
+.hero__reloc {
+  margin-left: .35rem; padding: .1rem .6rem; border-radius: 999px;
+  border: 1px solid var(--teal); color: var(--teal-deep); font-size: .88rem;
+}
+.hero__name {
+  margin-top: 1.1rem;
+  font-size: clamp(3.6rem, 10vw, 7.6rem); font-weight: 800; line-height: .88; letter-spacing: -0.035em;
+  color: var(--b-ink);
+}
+.hero__title {
+  margin-top: 1.4rem; font-family: var(--f-display); font-style: italic; font-weight: 500;
+  font-size: clamp(1.4rem, 2.6vw, 1.85rem); color: var(--teal-deep);
+}
+.hero__intro { margin-top: 1rem; max-width: 34rem; font-size: 1.12rem; color: var(--b-muted); }
+.hero__cta { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .8rem; }
+
+.social { margin-top: 1.6rem; display: flex; gap: .55rem; }
+.social a {
+  display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  border: 1.5px solid var(--b-line); color: var(--b-ink); transition: border-color .2s, color .2s, background-color .2s;
+}
+.social a:hover { border-color: var(--teal); color: var(--teal-deep); background: rgba(17, 100, 94, .08); }
+.social svg { width: 1.2rem; height: 1.2rem; }
+
+/* Ring portrait: collect, detect, respond */
+.medal { position: relative; width: 100%; max-width: 30rem; justify-self: center; }
+.medal__rings, .medal__photo { aspect-ratio: 1 / 1; }
+.medal__rings { position: absolute; inset: 0; width: 100%; height: auto; overflow: visible; }
+.ring { fill: none; stroke-width: 9; stroke-linecap: round; transform-origin: 200px 200px; transform: rotate(-90deg); }
+.ring--b { stroke: var(--teal); }
+.ring--s { stroke: var(--slate); }
+.ring--g { stroke: var(--amber); }
+.medal__photo { display: block; position: relative; margin: 11%; border-radius: 50%; overflow: hidden; background: #9a9a9a; }
+.medal__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.medal__key { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.1rem; margin-top: .4rem; font-size: .9rem; color: var(--b-muted); }
+.k { display: inline-flex; align-items: center; gap: .4rem; }
+.k::before { content: ""; width: .7rem; height: .7rem; border-radius: 50%; background: var(--c); }
+.k--b { --c: var(--teal); } .k--s { --c: var(--slate); } .k--g { --c: var(--amber); }
+
+/* The one orchestrated moment: rings draw in, collect to respond */
+@media (prefers-reduced-motion: no-preference) {
+  .ring { stroke-dasharray: 1210; stroke-dashoffset: 1210; animation: draw 1.3s cubic-bezier(.6,.05,.2,1) forwards; }
+  .ring--b { stroke-dasharray: 1207; stroke-dashoffset: 1207; animation-delay: .15s; }
+  .ring--s { stroke-dasharray: 1119; stroke-dashoffset: 1119; animation-delay: .45s; }
+  .ring--g { stroke-dasharray: 1031; stroke-dashoffset: 1031; animation-delay: .75s; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+}
+
+/* Manifest strip */
+.manifest { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--pad); }
+.manifest__row {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(13.5rem, 1fr); gap: 0;
+  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin;
+  border-top: 1px solid var(--b-line); border-bottom: 1px solid var(--b-line);
+}
+.manifest__row li {
+  scroll-snap-align: start; padding: 1.1rem 1.2rem 1.2rem; font-size: .93rem; color: var(--b-muted);
+  border-left: 1px solid var(--b-line); line-height: 1.4;
+}
+.manifest__row li:first-child { border-left: 0; padding-left: 0; }
+.manifest__row b {
+  display: block; font-family: var(--f-display); font-weight: 700; font-size: 1.9rem; line-height: 1.1;
+  color: var(--b-ink); margin-bottom: .25rem;
+}
+
+/* ---------- Profile ---------- */
+.profile__grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.profile__prose { max-width: 62ch; display: grid; gap: 1.1rem; color: var(--b-muted); }
+.lede { font-family: var(--f-display); font-size: clamp(1.4rem, 2.4vw, 1.75rem); line-height: 1.4; color: var(--b-ink); font-weight: 500; }
+.record { margin: 0; border: 1px solid var(--b-line); border-radius: var(--r-md); background: rgba(255,255,255,.45); }
+.record div { display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; padding: .85rem 1.1rem; }
+.record div + div { border-top: 1px solid var(--b-line); }
+.record dt { color: var(--b-muted); font-size: .92rem; }
+.record dd { margin: 0; font-weight: 500; }
+
+.domains { margin-top: clamp(3rem, 6vw, 4.5rem); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); }
+.domain { border-top: 4px solid var(--teal); padding-top: 1.1rem; }
+.domain h3 { font-size: 1.4rem; margin-bottom: .5rem; }
+.domain p { color: var(--b-muted); font-size: .98rem; }
+
+/* ==========================================================================
+   DETECT: experience strata
+   ========================================================================== */
+.strata { border-top: 1px solid var(--s-line); }
+.stratum {
+  display: grid; grid-template-columns: 11rem 17rem 1fr; gap: 1.5rem clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1rem, 2vw, 1.75rem);
+  border-bottom: 1px solid var(--s-line); background: var(--band);
+}
+/* Deeper strata sit on slightly deeper tones: newest on top, like layers of ore */
+.stratum:nth-child(1) { --band: #F6F8FB; }
+.stratum:nth-child(2) { --band: #EEF1F7; }
+.stratum:nth-child(3) { --band: #E5E9F1; }
+.stratum__when { font-weight: 600; }
+.stratum__where { color: var(--s-muted); font-size: .95rem; margin-top: .2rem; }
+.stratum__title { font-size: 1.55rem; }
+.stratum__org { margin-top: .35rem; color: var(--steel); font-weight: 600; }
+.stratum__kpi { margin-top: 1.1rem; padding-top: 1rem; border-top: 2px solid var(--slate); color: var(--s-muted); font-size: .95rem; line-height: 1.45; }
+.stratum__kpi b { display: block; font-family: var(--f-display); font-size: 2.2rem; line-height: 1; color: var(--s-ink); margin-bottom: .3rem; }
+.stratum__list { display: grid; gap: .7rem; max-width: 68ch; }
+.stratum__list li, .proj__list li { position: relative; padding-left: 1.2rem; }
+.stratum__list li::before, .proj__list li::before {
+  content: ""; position: absolute; left: 0; top: .68em; width: .5rem; height: 2px; background: var(--steel);
+}
+
+.tags { margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+.tags li {
+  font-family: var(--f-mono); font-size: .8rem; padding: .22rem .6rem;
+  border: 1px solid var(--s-line); border-radius: var(--r-sm); background: var(--s-surface); color: var(--s-ink);
+}
+
+/* ---------- Projects ---------- */
+.filter { display: flex; flex-wrap: wrap; gap: .35rem; }
+.filter__btn {
+  border: 1.5px solid var(--s-line); background: transparent; border-radius: 999px;
+  padding: .45rem .95rem; cursor: pointer; font-weight: 500; font-size: .93rem;
+}
+.filter__btn:hover { border-color: var(--steel); }
+.filter__btn[aria-pressed="true"] { background: var(--s-ink); border-color: var(--s-ink); color: var(--s-surface); }
+
+.shelf { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1rem, 2vw, 1.5rem); }
+.proj {
+  background: var(--s-surface); border: 1px solid var(--s-line); border-top: 4px solid var(--steel);
+  border-radius: var(--r-sm); padding: clamp(1.3rem, 2.5vw, 1.8rem);
+  display: flex; flex-direction: column;
+}
+.proj[hidden] { display: none; }
+.proj__when { font-size: .9rem; color: var(--s-muted); }
+.proj__title { font-size: 1.5rem; margin-top: .35rem; }
+.proj__sub { margin-top: .35rem; font-family: var(--f-display); font-style: italic; font-size: 1.15rem; color: var(--steel); }
+.proj__fig { margin-top: .8rem; color: var(--s-muted); font-size: .95rem; }
+.proj__fig b { font-family: var(--f-display); font-size: 1.5rem; color: var(--s-ink); margin-right: .25rem; }
+.proj__list { margin-top: 1rem; display: grid; gap: .6rem; font-size: .98rem; }
+.proj .tags { margin-top: auto; padding-top: 1.2rem; }
+
+.proj--feature {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: .9fr 1.1fr; gap: .5rem clamp(1.5rem, 4vw, 3rem);
+  border-top-width: 6px; border-image: linear-gradient(90deg, var(--teal), var(--slate), var(--amber)) 1;
+  border-left: 1px solid var(--s-line); border-right: 1px solid var(--s-line); border-bottom: 1px solid var(--s-line);
+  border-image-slice: 6 0 0 0;
+}
+.proj--feature > .proj__when, .proj--feature > .proj__title, .proj--feature > .proj__sub, .proj--feature > .flow { grid-column: 1; }
+.proj--feature > .proj__list { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; align-self: start; }
+.proj--feature > .tags { grid-column: 1 / -1; }
+.proj--feature .proj__title { font-size: clamp(1.7rem, 3vw, 2.2rem); }
+
+.flow { margin-top: 1.4rem; display: grid; gap: .6rem; }
+.flow__step {
+  display: grid; grid-template-columns: 4.5rem 1fr; gap: .8rem; align-items: start;
+  padding: .7rem .8rem; border-radius: var(--r-sm); background: var(--s-ground); font-size: .93rem; line-height: 1.4;
+  position: relative;
+}
+.flow__step b { font-family: var(--f-display); font-size: 1.05rem; display: flex; align-items: center; gap: .4rem; }
+.flow__step b::before { content: ""; width: .75rem; height: .75rem; border-radius: 50%; background: var(--c); flex: none; }
+.flow__step--b { --c: var(--teal); } .flow__step--s { --c: var(--slate); } .flow__step--g { --c: var(--amber); }
+.flow__step + .flow__step::before {
+  content: ""; position: absolute; left: 1.15rem; top: -.6rem; height: .6rem; width: 2px; background: var(--s-line);
+}
+.shelf__empty { margin-top: 1rem; color: var(--s-muted); }
+
+/* ---------- Skills: alloy rows ---------- */
+.toggle {
+  border: 1.5px solid var(--s-ink); background: transparent; border-radius: 999px;
+  padding: .55rem 1.1rem; font-weight: 600; cursor: pointer;
+}
+.toggle[aria-pressed="true"] { background: var(--s-ink); color: var(--s-surface); }
+.alloy { border-top: 1px solid var(--s-line); }
+.alloy__row {
+  display: grid; grid-template-columns: 17rem 1fr; gap: 1rem 2rem;
+  padding: 1.5rem 0; border-bottom: 1px solid var(--s-line); align-items: start;
+}
+.alloy__row h3 { font-size: 1.25rem; padding-top: .35rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chips li {
+  display: inline-flex; flex-direction: column; justify-content: center;
+  padding: .45rem .9rem; border-radius: 999px; background: var(--s-surface);
+  border: 1px solid var(--s-line); font-weight: 500; line-height: 1.3;
+}
+.chips li[data-used] { padding-left: 1.65rem; position: relative; }
+.chips li[data-used]::before {
+  content: ""; position: absolute; left: .7rem; top: 50%; width: .5rem; height: .5rem; margin-top: -.25rem;
+  border-radius: 50%; background: #B07E1E; box-shadow: 0 0 0 2px rgba(226,169,59,.35);
+}
+.alloy.is-evidence .chips li[data-used] { border-radius: var(--r-md); }
+.alloy.is-evidence .chips li[data-used]::before { top: 1.05rem; }
+.alloy.is-evidence .chips li[data-used]::after {
+  content: attr(data-used); font-weight: 400; font-size: .8rem; color: var(--s-muted); margin-top: .15rem;
+}
+
+/* ---------- Education ---------- */
+.degrees { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1rem, 2vw, 1.5rem); }
+.degree {
+  position: relative; background: var(--s-surface); border: 1px solid var(--s-line);
+  border-radius: var(--r-sm); padding: clamp(1.4rem, 3vw, 2rem);
+}
+.degree__icon { width: 2rem; height: 2rem; color: var(--steel); }
+.degree__level { margin-top: 1rem; color: var(--s-muted); font-weight: 500; }
+.degree__field { font-size: clamp(1.45rem, 2.6vw, 1.85rem); margin-top: .2rem; }
+.degree__school { margin-top: .4rem; font-weight: 600; color: var(--steel); }
+.degree__facts { margin: 1.2rem 0 0; display: flex; flex-wrap: wrap; gap: .8rem 2rem; }
+.degree__facts dt { font-size: .85rem; color: var(--s-muted); }
+.degree__facts dd { margin: 0; font-weight: 600; }
+.degree__cw-h { margin-top: 1.2rem; font-size: .85rem; color: var(--s-muted); }
+.degree__cw { margin-top: .4rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+.degree__cw li { font-size: .88rem; padding: .2rem .6rem; border-radius: var(--r-sm); background: var(--s-ground); }
+
+/* ==========================================================================
+   RESPOND: résumé log search console
+   ========================================================================== */
+.console .sec__head { max-width: 64ch; }
+.mc { border: 1px solid var(--g-line); border-radius: var(--r-md); background: var(--g-surface); overflow: hidden; }
+.mc__steps { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--g-line); }
+.mc__step {
+  position: relative; text-align: left; cursor: pointer; border: 0; background: transparent;
+  padding: 1rem 1.2rem 1.1rem; display: grid; gap: .1rem; color: var(--g-muted);
+  border-top: 4px solid transparent;
+}
+.mc__step + .mc__step { border-left: 1px solid var(--g-line); }
+.mc__step b { font-family: var(--f-display); font-size: 1.3rem; color: var(--g-ink); display: flex; align-items: center; gap: .5rem; }
+.mc__step b::before { content: ""; width: .8rem; height: .8rem; border-radius: 50%; background: var(--c); }
+.mc__step span { font-size: .9rem; }
+.mc__step[data-layer="raw"] { --c: #3FA79E; }
+.mc__step[data-layer="parsed"] { --c: var(--slate); }
+.mc__step[data-layer="stats"]   { --c: var(--amber); }
+.mc__step:hover { background: rgba(255,255,255,.03); }
+.mc__step[aria-selected="true"] { border-top-color: var(--c); background: var(--g-ground); color: var(--g-ink); }
+
+.mc__controls { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--g-line); background: var(--g-ground); }
+.mc__field { display: grid; gap: .3rem; font-size: .88rem; color: var(--g-muted); }
+.mc__field[hidden] { display: none; }
+.mc__field select {
+  appearance: none; -webkit-appearance: none;
+  background: var(--g-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%23E2A93B' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right .7rem center / 1rem;
+  color: var(--g-ink); border: 1px solid var(--g-line); border-radius: var(--r-sm);
+  padding: .55rem 2.3rem .55rem .8rem; font-size: 1rem; min-width: 13rem; cursor: pointer;
+}
+
+.mc__panel { padding: 1.2rem; background: var(--g-ground); }
+.mc__sql {
+  margin: 0; padding: 1rem 1.1rem; overflow-x: auto; border-radius: var(--r-sm);
+  background: #0D141E; border: 1px solid var(--g-line);
+  font-family: var(--f-mono); font-size: .88rem; line-height: 1.6; color: var(--g-ink);
+}
+.mc__sql .kw { color: var(--amber); font-weight: 600; }
+.mc__sql .str { color: #A8D5B6; }
+.mc__sql .fn { color: #9FC2F2; }
+.mc__sql .cm { color: #94A2B6; font-style: italic; }
+.mc__count { margin: 1rem 0 .6rem; color: var(--g-muted); font-size: .93rem; }
+.mc__tablewrap { overflow-x: auto; border: 1px solid var(--g-line); border-radius: var(--r-sm); }
+.mc__table { width: 100%; border-collapse: collapse; font-size: .93rem; min-width: 36rem; }
+.mc__table th, .mc__table td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid var(--g-line); vertical-align: top; }
+.mc__table th { font-weight: 600; color: var(--g-muted); background: var(--g-surface); font-size: .85rem; }
+.mc__table tr:last-child td { border-bottom: 0; }
+.mc__table .num { text-align: right; font-family: var(--f-mono); white-space: nowrap; color: var(--amber-soft); }
+.mc__table .raw { color: var(--g-ink); max-width: 60ch; }
+.mc__table .raw mark { background: rgba(226,169,59,.22); color: var(--amber-soft); padding: 0 .15em; border-radius: 2px; }
+.mc__table .muted { color: var(--g-muted); }
+.mc__table .bar { display: flex; align-items: center; gap: .6rem; min-width: 9rem; }
+.mc__table .bar i { display: block; height: .55rem; border-radius: 2px; background: linear-gradient(90deg, var(--amber), var(--amber-soft)); }
+.pill { display: inline-block; font-size: .78rem; padding: .08rem .5rem; border-radius: 999px; border: 1px solid var(--g-line); color: var(--g-muted); white-space: nowrap; }
+
+/* ---------- Certifications ---------- */
+.research__grid { display: grid; grid-template-columns: 15rem 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.award__disc {
+  width: 15rem; aspect-ratio: 1 / 1; border-radius: 50%;
+  display: grid; place-content: center; text-align: center; color: #3A2A0C;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 246, 214, .85), transparent 38%),
+    radial-gradient(circle, #E7C46E 0 58%, #B98A2E 59% 61%, #E2BC61 62% 72%, #9E7424 73% 75%, #D9AE4E 76%);
+  box-shadow: 0 0 0 6px rgba(226,169,59,.16), 0 24px 50px -20px rgba(0,0,0,.6);
+}
+.award__year { font-family: var(--f-display); font-weight: 800; font-size: 3.2rem; line-height: 1; }
+.award__org { font-family: var(--f-display); font-weight: 600; font-size: 1.15rem; letter-spacing: .06em; }
+.award__icon { width: 4.2rem; height: 4.2rem; margin: 0 auto .5rem; display: block; }
+@media (max-width: 900px) { .award__icon { width: 3.2rem; height: 3.2rem; } }
+.research__award { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.6rem, 3.2vw, 2.3rem); line-height: 1.2; color: var(--amber-soft); }
+.research__note { margin-top: .6rem; color: var(--g-muted); max-width: 55ch; }
+.paper { margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid var(--g-line); }
+.paper__title { font-size: 1.35rem; font-weight: 600; font-style: italic; line-height: 1.35; max-width: 50ch; }
+.paper__facts { margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; }
+.paper__facts li { color: var(--g-muted); max-width: 22rem; line-height: 1.45; }
+.paper__facts b { display: block; font-family: var(--f-display); font-size: 2.1rem; color: var(--g-ink); line-height: 1.1; }
+
+/* ---------- Contact ---------- */
+.contact { border-top: 1px solid var(--g-line); }
+.contact__inner { max-width: var(--wrap); margin: 0 auto; padding: clamp(4.5rem, 10vw, 7.5rem) var(--pad); }
+.contact h2 { font-size: clamp(2.2rem, 5.5vw, 4.2rem); font-weight: 700; max-width: 18ch; letter-spacing: -0.02em; }
+.contact__sub { margin-top: 1rem; color: var(--g-muted); font-size: 1.1rem; }
+.contact__mail { margin-top: 2.2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.contact__email {
+  font-family: var(--f-display); font-size: clamp(1.3rem, 3.4vw, 2.2rem); font-weight: 600; color: var(--amber-soft);
+  text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .2em; overflow-wrap: anywhere;
+}
+.contact__email:hover { color: var(--amber); }
+.copy {
+  display: inline-flex; align-items: center; gap: .45rem; cursor: pointer;
+  border: 1.5px solid var(--g-line); background: transparent; border-radius: 999px; padding: .5rem .95rem; font-weight: 500;
+}
+.copy:hover { border-color: var(--amber); }
+.copy svg { width: 1.05rem; height: 1.05rem; }
+.contact__list { margin: 2rem 0 2.4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .9rem 2rem; }
+.contact__list li { display: flex; align-items: center; gap: .7rem; min-width: 0; }
+.contact__list svg { color: var(--amber); width: 1.2rem; height: 1.2rem; }
+.contact__list a { text-decoration: none; overflow-wrap: anywhere; }
+.contact__list a:hover { text-decoration: underline; }
+
+.foot {
+  max-width: var(--wrap); margin: 0 auto; padding: 1.5rem var(--pad) calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  display: flex; justify-content: space-between; gap: 1rem; color: var(--g-muted); font-size: .92rem;
+  border-top: 1px solid var(--g-line);
+}
+.foot a { color: var(--g-ink); }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 1.5rem); z-index: 60;
+  transform: translate(-50%, 1rem); opacity: 0; pointer-events: none;
+  background: var(--amber); color: var(--g-ground); font-weight: 600;
+  padding: .7rem 1.2rem; border-radius: 999px; transition: opacity .2s, transform .2s;
+}
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .stratum { grid-template-columns: 1fr 1.6fr; }
+  .stratum__meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .2rem 1rem; align-items: baseline; }
+  .stratum__where { margin-top: 0; }
+}
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .medal { max-width: 22rem; grid-row: 1; }
+  .profile__grid { grid-template-columns: 1fr; }
+  .domains { grid-template-columns: 1fr; }
+  .stratum { grid-template-columns: 1fr; }
+  .proj--feature { grid-template-columns: 1fr; }
+  .proj--feature > .proj__list { grid-column: 1; grid-row: auto; margin-top: 1.2rem; }
+  .alloy__row { grid-template-columns: 1fr; }
+  .research__grid { grid-template-columns: 1fr; }
+  .award__disc { width: 11rem; }
+  .award__year { font-size: 2.5rem; }
+}
+@media (max-width: 720px) {
+  .shelf, .degrees { grid-template-columns: 1fr; }
+  .lineage { grid-template-columns: 1fr; top: calc(100% + .7rem); max-height: calc(100vh - 6rem); overflow-y: auto; }
+  .lineage__tier + .lineage__tier { border-left: 0; border-top-width: 4px; }
+  .readout { left: .75rem; transform: none; }
+  .readout__btn { min-width: 0; }
+  .lineage { left: 0; transform: none; }
+  .jump { padding: .6rem; top: calc(env(safe-area-inset-top, 0px) + 1.05rem); right: .75rem; }
+  .jump span, .jump kbd { display: none; }
+  .jump::after { content: ""; }
+  .mc__steps { grid-template-columns: 1fr; }
+  .mc__step + .mc__step { border-left: 0; border-top-color: transparent; }
+  .mc__step { border-top-width: 0; border-left: 4px solid transparent; }
+  .mc__step[aria-selected="true"] { border-left-color: var(--c); }
+  .mc__step + .mc__step { border-top: 1px solid var(--g-line); }
+  .mc__field select { min-width: 0; width: 100%; }
+  .mc__field { flex: 1 1 12rem; }
+  .record div { grid-template-columns: 1fr; gap: .15rem; }
+  .foot { flex-direction: column; }
+}
+@media (max-width: 380px) {
+  .readout__btn { gap: .5rem; padding-right: .7rem; }
+  .readout__icon { display: none; }
+  .hero__name { font-size: 3.1rem; }
+  .btn { padding: .8rem 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+@media print {
+  .readout, .jump, .toast, .mc__controls, .filter, .toggle { display: none !important; }
+  .tier--respond { background: #fff; color: #000; }
+}
+
+/* Manifest: wraps into a 4-column grid on wide screens, scrolls on narrow ones */
+@media (min-width: 901px) {
+  .manifest__row { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); overflow: visible; border-bottom: 0; }
+  .manifest__row li { border-bottom: 1px solid var(--b-line); }
+  .manifest__row li:nth-child(4n+1) { border-left: 0; padding-left: 0; }
+}
+
+/* Consecutive sections in the same tier share one gap instead of two */
+.tier > .sec + .sec { padding-top: clamp(1.5rem, 4vw, 3rem); }
+.mc__table .grp { white-space: nowrap; font-weight: 600; }
+.mc__table td.muted .num { color: var(--amber-soft); }
+.contact__list { display: flex; flex-wrap: wrap; gap: .9rem 2.5rem; }
+.contact__list a { overflow-wrap: normal; word-break: normal; }
+@media (max-width: 380px) { .contact__list a { overflow-wrap: anywhere; } }
+
+/* Console: keep values readable when the table scrolls sideways */
+.mc__table td.muted { min-width: 16rem; }
+@media (max-width: 720px) {
+  .mc__steps { grid-template-columns: repeat(3, 1fr); }
+  .mc__step, .mc__step + .mc__step { border-left: 0; border-top: 4px solid transparent; padding: .75rem .7rem .8rem; }
+  .mc__step + .mc__step { border-left: 1px solid var(--g-line); }
+  .mc__step[aria-selected="true"] { border-top-color: var(--c); border-left-color: var(--g-line); }
+  .mc__step:first-child[aria-selected="true"] { border-left: 0; }
+  .mc__step b { font-size: 1.1rem; }
+  .mc__step span { font-size: .78rem; line-height: 1.3; }
+  .mc__table .bar { min-width: 5.5rem; }
+  .mc__table .bar i { max-width: 3rem; }
+  .mc__panel { padding: .9rem; }
+  .medal { max-width: 15.5rem; margin-top: .5rem; }
+}
+
+
+/* ==========================================================================
+   Shared additions
+   ========================================================================== */
+.hero__cert { margin-top: .6rem; display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; color: var(--b-ink); }
+.hero__cert svg { width: 1.15rem; height: 1.15rem; color: var(--teal); }
+
+/* Project code link */
+.proj__link {
+  display: inline-flex; align-items: center; gap: .45rem; margin-top: 1rem; align-self: start;
+  font-weight: 600; font-size: .93rem; color: var(--steel); text-decoration: none;
+  border-bottom: 1.5px solid currentColor; padding-bottom: .1rem;
+}
+.proj__link:hover { color: var(--s-ink); }
+.proj__link svg { width: 1.05rem; height: 1.05rem; }
+.proj--feature > .proj__link { grid-column: 1; justify-self: start; }
+
+/* Query language switch inside the console */
+.mc__lang { display: inline-flex; border: 1px solid var(--g-line); border-radius: 999px; padding: .2rem; gap: .2rem; align-self: end; }
+.mc__lang button {
+  border: 0; background: transparent; color: var(--g-muted); cursor: pointer;
+  font-family: var(--f-mono); font-size: .85rem; padding: .35rem .85rem; border-radius: 999px;
+}
+.mc__lang button[aria-pressed="true"] { background: var(--amber); color: var(--g-ground); font-weight: 600; }
+.mc__langwrap { display: grid; gap: .3rem; font-size: .88rem; color: var(--g-muted); }
+
+/* Certification disc */
+.award__year { font-size: 2.35rem; letter-spacing: -.01em; }
+.award__org { font-family: var(--f-mono); font-weight: 600; font-size: 1rem; letter-spacing: .02em; }
+.certs__list { margin-top: 1.1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem 2.5rem; }
+.certs__list li { color: var(--g-muted); line-height: 1.45; }
+.certs__list b { display: block; font-family: var(--f-display); font-size: 1.45rem; color: var(--g-ink); line-height: 1.2; margin-bottom: .3rem; }
+@media (max-width: 900px) { .award__year { font-size: 1.9rem; } }
+
+/* ==========================================================================
+   Sarika Gaind additions
+   ========================================================================== */
+.proj__links { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-top: 1rem; }
+.proj__links .proj__link { margin-top: 0; }
+.proj--feature > .proj__links { grid-column: 1; }
+@media (min-width: 901px) { .proj--feature > .proj__list { grid-row: 1 / span 5; } }
+.proj--wide { grid-column: 1 / -1; }
+.stratum__group { font-weight: 600; color: var(--steel); font-size: .95rem; margin: 0 0 .6rem; }
+.stratum__list + .stratum__group { margin-top: 1.2rem; }
+.hero__title { line-height: 1.3; text-wrap: balance; }
+.hero__title span { white-space: nowrap; }
+.award__year { font-size: 3.4rem; }
+@media (max-width: 900px) { .award__year { font-size: 2.6rem; } }
+
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sarika Gaind",
+    "jobTitle": "Generative AI Engineer",
+    "email": "mailto:sarikagaind27@outlook.com",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of North Texas" },
+      { "@type": "CollegeOrUniversity", "name": "Manav Rachna University" }
+    ],
+    "sameAs": ["https://www.linkedin.com/in/sarika-gaind", "https://github.com/sgaind-data"]
+  }
+  </script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.5 4.77 5.75v5.7h-4v-5.05c0-1.2-.02-2.75-1.7-2.75-1.7 0-1.95 1.3-1.95 2.66v5.14h-4v-11Z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M6.6 3.5h2.6l1.4 4.1-2 1.3a11.5 11.5 0 0 0 6.5 6.5l1.3-2 4.1 1.4v2.6a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m15 15 5 5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m12 3 9 5-9 5-9-5 9-5Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m3 12.5 9 5 9-5M3 16.5l9 5 9-5"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M2.5 9 12 4.5 21.5 9 12 13.5 2.5 9Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6.5 11v4.5c1.5 1.5 3.5 2.2 5.5 2.2s4-.7 5.5-2.2V11M21.5 9v5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6L12 3Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8.8 12 2.2 2.2 4.3-4.4"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8 7-5 5 5 5M16 7l5 5-5 5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M10 8.5v7l6-3.5-6-3.5Z"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M6 3.5h8l4 4v13H6z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M14 3.5v4h4M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 20h16M7 16v-5M12 16V7M17 16v-8"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===== Layer readout ===== -->
+<div class="readout" id="readout">
+  <button class="readout__btn" id="readoutBtn" type="button" aria-expanded="false" aria-controls="lineage">
+    <span class="readout__coin" aria-hidden="true"></span>
+    <span class="readout__text">
+      <span class="readout__tier" id="readoutTier">Ingest layer</span>
+      <span class="readout__sec" id="readoutSec">Introduction</span>
+    </span>
+    <svg class="readout__icon" aria-hidden="true"><use href="#i-layers"/></svg>
+    <span class="sr-only">Open section map</span>
+  </button>
+  <span class="readout__bar" aria-hidden="true"><i id="readoutFill"></i></span>
+
+  <nav class="lineage" id="lineage" aria-label="Page sections" hidden>
+    <div class="lineage__tier" data-tier="collect">
+      <p class="lineage__name">Ingest <span>who I am</span></p>
+      <ul>
+        <li><a href="#top">Introduction</a></li>
+        <li><a href="#profile">Profile</a></li>
+      </ul>
+    </div>
+    <div class="lineage__tier" data-tier="detect">
+      <p class="lineage__name">Transform <span>what I have built</span></p>
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </div>
+    <div class="lineage__tier" data-tier="respond">
+      <p class="lineage__name">Serve <span>ready to engage</span></p>
+      <ul>
+        <li><a href="#console">Résumé lakehouse</a></li>
+        <li><a href="#recognition">Research &amp; recognition</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<button class="jump" id="jumpBtn" type="button" aria-haspopup="dialog" aria-controls="palette">
+  <svg aria-hidden="true"><use href="#i-search"/></svg>
+  <span>Jump to</span>
+  <kbd>Ctrl K</kbd>
+</button>
+
+<dialog class="palette" id="palette" aria-label="Jump to a section, role, project, or skill">
+  <div class="palette__box">
+    <div class="palette__head">
+      <svg aria-hidden="true"><use href="#i-search"/></svg>
+      <label class="sr-only" for="paletteInput">Search sections, roles, projects, and skills</label>
+      <input id="paletteInput" type="text" autocomplete="off" spellcheck="false"
+             placeholder="Search sections, roles, projects, or skills" role="combobox"
+             aria-expanded="true" aria-controls="paletteList" aria-autocomplete="list">
+      <button class="palette__close" type="button" id="paletteClose" aria-label="Close">
+        <svg aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <ul class="palette__list" id="paletteList" role="listbox" aria-label="Results"></ul>
+    <p class="palette__hint">Arrow keys to move, Enter to jump, Esc to close.</p>
+  </div>
+</dialog>
+
+<main id="main">
+
+<!-- ======================================================================
+     INGEST LAYER
+     ====================================================================== -->
+<div class="tier tier--collect" data-tier="collect">
+
+  <header class="hero" id="top" data-label="Introduction">
+    <div class="hero__text">
+      <p class="hero__loc"><svg aria-hidden="true"><use href="#i-pin"/></svg>USA <span class="hero__reloc">Open to relocation</span></p>
+      <h1 class="hero__name">Sarika<br>Gaind</h1>
+      <p class="hero__title"><span>Generative AI Engineer ·</span> <span>Data Engineer ·</span> <span>Data &amp; Business Analyst</span></p>
+      <p class="hero__cert"><svg aria-hidden="true"><use href="#i-cap"/></svg>M.S. Advanced Data Analytics (AI) + MBA · GPA 3.9</p>
+      <p class="hero__intro">I build evaluated LLM systems (RAG, LangGraph agents, fine-tuned models) and data pipelines on Databricks, Snowflake, Redshift and dbt, then turn the analysis into business decisions with requirements, UAT and KPI dashboards.</p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="Sarika-Gaind-Resume.pdf" download="Sarika-Gaind-Resume.pdf">
+          <svg aria-hidden="true"><use href="#i-download"/></svg>Download résumé
+        </a>
+        <a class="btn btn--line" href="#contact">Get in touch</a>
+      </div>
+      <ul class="social" aria-label="Contact links">
+        <li><a href="https://www.linkedin.com/in/sarika-gaind" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+        <li><a href="https://github.com/sgaind-data" target="_blank" rel="noopener" aria-label="GitHub profile"><svg aria-hidden="true"><use href="#i-github"/></svg></a></li>
+        <li><a href="mailto:sarikagaind27@outlook.com" aria-label="Email sarikagaind27@outlook.com"><svg aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+      </ul>
+    </div>
+
+    <figure class="medal">
+      <svg class="medal__rings" viewBox="0 0 400 400" aria-hidden="true">
+        <circle class="ring ring--b" cx="200" cy="200" r="192"/>
+        <circle class="ring ring--s" cx="200" cy="200" r="178"/>
+        <circle class="ring ring--g" cx="200" cy="200" r="164"/>
+      </svg>
+      <picture class="medal__photo">
+        <img src="data:image/jpeg;base64,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" alt="Portrait of Sarika Gaind" width="320" height="320" fetchpriority="high">
+      </picture>
+      <figcaption class="medal__key">
+        <span class="k k--b">Data pipelines</span>
+        <span class="k k--s">LLM systems</span>
+        <span class="k k--g">Business decisions</span>
+      </figcaption>
+    </figure>
+  </header>
+
+  <div class="manifest" aria-label="Selected figures from the résumé">
+    <ul class="manifest__row" tabindex="0">
+      <li><b>0.96</b> faithfulness on grounded FAQ answers from a RAG pipeline</li>
+      <li><b>100%</b> on safety and hallucination checks across 11 evaluators</li>
+      <li><b>~1,600 hrs</b> of manual work eliminated a year with Azure pipelines</li>
+      <li><b>~30%</b> faster Power BI refreshes over Snowflake</li>
+      <li><b>+9.6 pts</b> macro F1 from a fine-tuned DistilBERT</li>
+      <li><b>~432</b> late orders avoided by a seller dispatch SLA, at no freight cost</li>
+      <li><b>98,666</b> orders modeled into a dbt star schema</li>
+      <li><b>90</b> passing dbt tests across 16 models on Redshift</li>
+    </ul>
+  </div>
+
+  <section class="sec profile" id="profile" aria-labelledby="profile-h" data-label="Profile">
+    <div class="sec__head">
+      <h2 id="profile-h">Profile</h2>
+    </div>
+    <div class="profile__grid">
+      <div class="profile__prose">
+        <p class="lede">I build LLM systems that are measured before they ship, on top of data pipelines I can trust.</p>
+        <p>At Think Round I built a Python evaluation framework that pairs rule-based metrics with LLM-as-a-judge, so release decisions for two GenAI chatbots rest on evidence. I also built a vector-search RAG pipeline with citations and contributed to a plugin-based LangGraph orchestrator with PII guardrails.</p>
+        <p>Before that, at Crowe, I engineered Snowflake SQL views and Power BI models for fair-lending analytics and automated regulatory data collection with Python and Azure. My projects span RAG APIs with tracing and evals, fine-tuned NLP models, Databricks lakehouses, and a full business-analysis case study on AWS.</p>
+      </div>
+
+      <dl class="record" aria-label="Profile record">
+        <div><dt>Based in</dt><dd>USA, open to relocation</dd></div>
+        <div><dt>Current roles</dt><dd>Generative AI Engineer, Think Round Inc. · GenAI Associate, Innodata</dd></div>
+        <div><dt>Graduate degree</dt><dd>M.S. Advanced Data Analytics (AI) + MBA, Business Analytics, University of North Texas</dd></div>
+        <div><dt>Research</dt><dd>First author, “Speech Emotion Recognition Using LSTM” (2023)</dd></div>
+      </dl>
+    </div>
+
+    <ul class="domains" aria-label="Areas of work">
+      <li class="domain">
+        <h3>Generative AI &amp; LLMs</h3>
+        <p>RAG with citations, LangGraph multi-agent systems, MCP tool calling, guardrails, and LLM evaluation with RAGAS and LLM-as-a-judge.</p>
+      </li>
+      <li class="domain">
+        <h3>Data engineering</h3>
+        <p>Databricks medallion pipelines, Snowflake and Redshift modeling with dbt, Airflow orchestration, and SCD Type 2 dimensions.</p>
+      </li>
+      <li class="domain">
+        <h3>Analytics &amp; business analysis</h3>
+        <p>BRDs, user stories and UAT, BPMN process maps, Excel what-if models, and Power BI and Tableau KPI dashboards.</p>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<!-- ======================================================================
+     TRANSFORM LAYER
+     ====================================================================== -->
+<div class="tier tier--detect" data-tier="detect">
+
+  <section class="sec experience" id="experience" aria-labelledby="exp-h" data-label="Experience">
+    <div class="sec__head">
+      <h2 id="exp-h">Experience</h2>
+      <p class="sec__sub">Three roles across GenAI engineering, LLM training data, and financial data services.</p>
+    </div>
+
+    <ol class="strata">
+      <li class="stratum" id="role-thinkround">
+        <div class="stratum__meta">
+          <p class="stratum__when">Sep 2026 to present</p>
+        </div>
+        <div class="stratum__lead">
+          <h3 class="stratum__title">Generative AI Engineer</h3>
+          <p class="stratum__org">Think Round Inc.</p>
+          <p class="stratum__kpi"><b>0.96</b> faithfulness on grounded FAQ answers with citations</p>
+        </div>
+        <div class="stratum__body">
+          <ul class="stratum__list">
+            <li>Made release decisions evidence-based for 2 GenAI chatbots (80% overall pass rate, 100% on safety and hallucination checks across 11 evaluators) by building a Python eval framework pairing rule-based metrics with LLM-as-a-judge.</li>
+            <li>Isolated citation and exact-match accuracy as the top gaps (60% vs. 100% for faithfulness) by analyzing per-evaluator results.</li>
+            <li>Grounded FAQ answers at 0.96 faithfulness by curating versioned documents into a vector-search RAG pipeline with citations.</li>
+            <li>Ran 4 AI agents across 4 LLM providers on one backend by contributing to a plugin-based LangGraph orchestrator with PII guardrails.</li>
+          </ul>
+          <ul class="tags" aria-label="Tools and practices named in this role"><li>Python</li><li>LLM-as-a-Judge</li><li>RAG</li><li>Vector Search</li><li>LangGraph</li><li>PII Guardrails</li></ul>
+        </div>
+      </li>
+
+      <li class="stratum" id="role-innodata">
+        <div class="stratum__meta">
+          <p class="stratum__when">Nov 2026 to present</p>
+        </div>
+        <div class="stratum__lead">
+          <h3 class="stratum__title">Generative AI Associate, Data Annotation</h3>
+          <p class="stratum__org">Innodata</p>
+          <p class="stratum__kpi"><b>SFT &amp; RLHF</b> training data for frontier AI clients</p>
+        </div>
+        <div class="stratum__body">
+          <ul class="stratum__list">
+            <li>Evaluate and rank LLM outputs for accuracy, reasoning, safety and instruction-following against client rubrics.</li>
+            <li>Write and refine prompts and rewrite model responses to create high-quality supervised fine-tuning (SFT) and RLHF training data.</li>
+            <li>Annotate text data for frontier AI clients, flagging hallucinations, factual errors and policy violations.</li>
+          </ul>
+          <ul class="tags" aria-label="Practices named in this role"><li>LLM Evaluation</li><li>Prompt Engineering</li><li>SFT Data</li><li>RLHF Data</li><li>Annotation</li></ul>
+        </div>
+      </li>
+
+      <li class="stratum" id="role-crowe">
+        <div class="stratum__meta">
+          <p class="stratum__when">Jan 2022 to Jan 2023</p>
+        </div>
+        <div class="stratum__lead">
+          <h3 class="stratum__title">Data Service Developer</h3>
+          <p class="stratum__org">Crowe LLP</p>
+          <p class="stratum__kpi"><b>~1,600 hrs</b> of manual work eliminated each year</p>
+        </div>
+        <div class="stratum__body">
+          <p class="stratum__group">Fair Lending Analytics · Power BI, Snowflake, SQL</p>
+          <ul class="stratum__list">
+            <li>Cut Power BI dashboard refresh times ~30% by engineering 10+ optimized SQL views and data models over millions of financial records in the Snowflake data warehouse, versioned in Git.</li>
+            <li>Kept every figure identical across a light/dark theme rollout for 20+ Power BI dashboards by rebuilding DAX measures and reconciling values to source, and resolved tester-reported defects in daily Scrum with compliance stakeholders.</li>
+          </ul>
+          <p class="stratum__group">Regulatory Data Automation · Python, Azure</p>
+          <ul class="stratum__list">
+            <li>Eliminated ~1,600 hours of manual work a year (10 people × 4 weeks) by building Azure pipelines with Python that collect U.S. Treasury and regulatory data from 100+ sources and store it automatically.</li>
+          </ul>
+          <ul class="tags" aria-label="Tools named in this role"><li>Snowflake</li><li>SQL</li><li>Power BI</li><li>DAX</li><li>Python</li><li>Azure</li><li>Git</li><li>Scrum</li></ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="sec projects" id="projects" aria-labelledby="proj-h" data-label="Projects">
+    <div class="sec__head sec__head--split">
+      <div>
+        <h2 id="proj-h">Projects</h2>
+        <p class="sec__sub">Four end-to-end builds, each with measured results and public code or a live demo.</p>
+      </div>
+      <div class="filter" role="group" aria-label="Filter projects">
+        <button type="button" class="filter__btn" aria-pressed="true" data-f="all">All</button>
+        <button type="button" class="filter__btn" aria-pressed="false" data-f="genai">GenAI &amp; LLMs</button>
+        <button type="button" class="filter__btn" aria-pressed="false" data-f="ml">ML &amp; NLP</button>
+        <button type="button" class="filter__btn" aria-pressed="false" data-f="de">Data engineering</button>
+        <button type="button" class="filter__btn" aria-pressed="false" data-f="ba">Business analysis</button>
+      </div>
+    </div>
+
+    <div class="shelf" id="shelf">
+      <article class="proj proj--feature" data-cat="genai" id="proj-metricmedic">
+        <p class="proj__when">RAG API, tracing &amp; evals</p>
+        <h3 class="proj__title">MetricMedic</h3>
+        <p class="proj__sub">A production-style RAG service that is traced, tested, and evaluated</p>
+
+        <ol class="flow" aria-label="Service stages">
+          <li class="flow__step flow__step--b"><b>Retrieve</b><span>51 scenarios embedded in FAISS with Gemini, retrieval exposed as an MCP tool</span></li>
+          <li class="flow__step flow__step--s"><b>Serve</b><span>LangChain chain served as a FastAPI REST API in Docker, traced in Langfuse</span></li>
+          <li class="flow__step flow__step--g"><b>Evaluate</b><span>0.746 faithfulness and 83.8% hit@3 on a 37-question golden set, gated by 49-test CI</span></li>
+        </ol>
+        <div class="proj__links">
+          <a class="proj__link" href="https://github.com/sgaind-data/metricmedic-chatbot" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github"/></svg>View on GitHub</a>
+        </div>
+
+        <ul class="proj__list">
+          <li>Delivered a production-style RAG service scoring 0.746 faithfulness and 83.8% hit@3 on a 37-question golden dataset by refactoring MetricMedic (51 scenarios, FAISS embeddings, Gemini) into a LangChain chain served as a FastAPI REST API in Docker.</li>
+          <li>Made every request observable (1,446 ms p50 latency, $0.05 per 100 queries) with Langfuse tracing, exposed retrieval as an MCP tool, and gated changes with 49-test CI, rejecting a BM25 A/B that lowered MRR.</li>
+        </ul>
+        <ul class="tags"><li>LangChain</li><li>FastAPI</li><li>Docker</li><li>Langfuse</li><li>RAGAS</li><li>MCP</li><li>FAISS</li></ul>
+      </article>
+
+      <article class="proj" data-cat="ml" id="proj-airbnb">
+        <p class="proj__when">Fine-tuned NLP model to live demo</p>
+        <h3 class="proj__title">Airbnb Review Quality</h3>
+        <p class="proj__fig"><b>+9.6</b> points macro F1 over a tuned VADER baseline</p>
+        <ul class="proj__list">
+          <li>Improved macro F1 from 0.608 to 0.704 on 446 unseen listings by fine-tuning DistilBERT on 10,985 reviews, with listing-grouped splits that eliminated train/test leakage.</li>
+          <li>Shipped a free in-browser demo via int8 ONNX (4× smaller, 0.704 → 0.699 F1) and a 179 req/s FastAPI service, and surfaced amenities tied to low ratings (bathrooms 10.2% vs 5.9%, p &lt; 0.001) via spaCy NER.</li>
+        </ul>
+        <div class="proj__links">
+          <a class="proj__link" href="https://huggingface.co/spaces/sgaind-dataai/airbnb-review-quality" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-play"/></svg>Live demo</a>
+        </div>
+        <ul class="tags"><li>PyTorch</li><li>Hugging Face</li><li>DistilBERT</li><li>spaCy</li><li>FastAPI</li><li>ONNX</li></ul>
+      </article>
+
+      <article class="proj" data-cat="de ml genai" id="proj-agentops">
+        <p class="proj__when">AI agent observability</p>
+        <h3 class="proj__title">AgentOps Lakehouse</h3>
+        <p class="proj__fig"><b>13,789</b> validated rows from 14,140 agent-trace events</p>
+        <ul class="proj__list">
+          <li>Built a Databricks medallion pipeline with Auto Loader, Delta MERGE and an SCD Type 2 pricing dimension: 140 duplicates removed, 211 quarantined, 0 null costs.</li>
+          <li>Cut flagged agent-days from 4 to 2 at 1.00 recall with an Isolation Forest in MLflow and lifted a text-to-SQL agent’s LLM-judge pass rate from 78% to 89%; deployed via Asset Bundles and GitHub Actions.</li>
+        </ul>
+        <div class="proj__links">
+          <a class="proj__link" href="https://github.com/sgaind-data/agentops-lakehouse" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github"/></svg>View on GitHub</a>
+        </div>
+        <ul class="tags"><li>Azure Data Factory</li><li>Databricks</li><li>Delta Lake</li><li>Unity Catalog</li><li>MLflow</li><li>GitHub Actions</li></ul>
+      </article>
+
+      <article class="proj proj--wide" data-cat="de ba" id="proj-delivery">
+        <p class="proj__when">Delivery performance analytics on AWS + BA case study</p>
+        <h3 class="proj__title">Delivery Performance Analytics</h3>
+        <p class="proj__fig"><b>~432</b> late orders avoided by a seller dispatch SLA, at no freight cost</p>
+        <ul class="proj__list">
+          <li>Modeled 98,666 orders (112,650 items) into a dbt star schema on Redshift Serverless (16 models, 90 passing tests, SCD Type 2 snapshot) at $0 cost by landing data in S3 and orchestrating daily builds with Airflow; verified 99,224 DynamoDB reviews with 0 mismatches.</li>
+          <li>Recommended a seller dispatch SLA estimated to avoid ~432 late orders at no freight cost (vs. ~286 for a R$12,696 shipping upgrade) by tracing late rates to dispatch time (21.39% at 7+ days vs. 3.81% at 0–1) in an Excel what-if model on 96,470 orders.</li>
+          <li>Defined the dashboard’s requirements (BRD with 10 requirements, 8 KPIs; 8 user stories across 2 Jira sprints) and signed it off through 27 UAT cases (10/10 data tests passed, 3 defects logged), with as-is/to-be BPMN process maps.</li>
+        </ul>
+        <div class="proj__links">
+          <a class="proj__link" href="https://github.com/sgaind-data/delivery-performance-analytics-aws" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+          <a class="proj__link" href="https://github.com/sgaind-data/delivery-performance-ba-case-study" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-doc"/></svg>BA case study</a>
+          <a class="proj__link" href="https://github.com/sgaind-data/delivery-performance-ba-case-study/blob/main/07-recommendations/stakeholder-deck.pdf" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-doc"/></svg>Stakeholder deck</a>
+          <a class="proj__link" href="https://public.tableau.com/app/profile/sarika.gaind6780/viz/AWSDeliveryAnalysis/DeliveryPerformance" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chart"/></svg>Tableau dashboard</a>
+        </div>
+        <ul class="tags"><li>S3</li><li>Redshift</li><li>dbt</li><li>Airflow</li><li>DynamoDB</li><li>Tableau</li><li>Excel</li><li>Jira</li><li>BPMN</li></ul>
+      </article>
+    </div>
+    <p class="shelf__empty" id="shelfEmpty" hidden>No projects in this category. Choose All to see every project.</p>
+  </section>
+
+  <section class="sec skills" id="skills" aria-labelledby="skills-h" data-label="Skills">
+    <div class="sec__head sec__head--split">
+      <div>
+        <h2 id="skills-h">Skills and tools</h2>
+        <p class="sec__sub">Skills with an amber mark are named in a specific role or project on this page.</p>
+      </div>
+      <button type="button" class="toggle" id="evidenceToggle" aria-pressed="false">Show where each is used</button>
+    </div>
+
+    <div class="alloy" id="alloy">
+      <div class="alloy__row">
+        <h3>GenAI and LLMs</h3>
+        <ul class="chips">
+          <li data-used="Think Round, MetricMedic">RAG</li><li data-used="Think Round">Agentic AI &amp; Multi-Agent Systems (LangGraph)</li><li data-used="MetricMedic">LangChain</li><li data-used="MetricMedic">MCP &amp; Tool Calling</li><li data-used="Innodata">Prompt Engineering</li><li data-used="Think Round, AgentOps Lakehouse">LLM-as-a-Judge</li><li data-used="MetricMedic">RAGAS</li><li data-used="MetricMedic">Langfuse</li><li data-used="Think Round">Guardrails</li><li data-used="Think Round, MetricMedic">Vector Search (FAISS)</li><li data-used="AgentOps Lakehouse">Text-to-SQL</li><li data-used="Innodata">SFT/RLHF Data</li>
+        </ul>
+      </div>
+      <div class="alloy__row">
+        <h3>Machine learning and NLP</h3>
+        <ul class="chips">
+          <li data-used="Airbnb Review Quality">PyTorch</li><li data-used="AgentOps Lakehouse">scikit-learn</li><li>Pandas</li><li>NumPy</li><li data-used="Airbnb Review Quality">Hugging Face Transformers</li><li data-used="Airbnb Review Quality">spaCy (NER)</li><li>Text Classification</li><li>Sentiment Analysis</li><li data-used="Airbnb Review Quality">ONNX</li><li data-used="AgentOps Lakehouse">Anomaly Detection</li><li>Forecasting</li><li data-used="MetricMedic">A/B Testing</li><li data-used="Airbnb Review Quality, Delivery Performance">Hypothesis Testing</li>
+        </ul>
+      </div>
+      <div class="alloy__row">
+        <h3>Data engineering</h3>
+        <ul class="chips">
+          <li data-used="Think Round, Crowe">Python</li><li data-used="Crowe">SQL</li><li>Spark SQL</li><li>PySpark</li><li data-used="AgentOps Lakehouse">Databricks (Delta Lake, Unity Catalog, Auto Loader)</li><li data-used="Crowe">Snowflake</li><li data-used="Delivery Performance">Redshift</li><li data-used="Delivery Performance">dbt</li><li data-used="Delivery Performance">Airflow</li><li>ETL/ELT</li><li data-used="AgentOps Lakehouse, Delivery Performance">Star Schema &amp; SCD Type 2</li><li>Data Lineage</li><li data-used="AgentOps Lakehouse">Data Quality</li><li data-used="Delivery Performance">DynamoDB</li>
+        </ul>
+      </div>
+      <div class="alloy__row">
+        <h3>Cloud, MLOps and serving</h3>
+        <ul class="chips">
+          <li data-used="Delivery Performance">AWS (S3)</li><li data-used="Crowe, AgentOps Lakehouse">Azure (Data Factory, ADLS Gen2, Event Hubs, Key Vault)</li><li>GCP (Vertex AI)</li><li data-used="MetricMedic, Airbnb Review Quality">FastAPI</li><li data-used="MetricMedic">Docker</li><li data-used="AgentOps Lakehouse">MLflow</li><li data-used="Airbnb Review Quality">Drift Monitoring</li><li data-used="AgentOps Lakehouse">GitHub Actions (CI/CD)</li><li data-used="MetricMedic">pytest</li>
+        </ul>
+      </div>
+      <div class="alloy__row">
+        <h3>Analytics and business analysis</h3>
+        <ul class="chips">
+          <li data-used="Crowe">Power BI (DAX, Power Query)</li><li data-used="Delivery Performance">Tableau</li><li data-used="Delivery Performance">Excel (What-If, XLOOKUP)</li><li>KPI Reporting</li><li data-used="Delivery Performance">Requirements (BRD, User Stories)</li><li data-used="Delivery Performance">UAT</li><li data-used="Delivery Performance">BPMN Process Mapping</li><li data-used="Delivery Performance">Jira</li><li data-used="Crowe">Agile/Scrum</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec education" id="education" aria-labelledby="edu-h" data-label="Education">
+    <div class="sec__head">
+      <h2 id="edu-h">Education</h2>
+    </div>
+    <div class="degrees">
+      <article class="degree">
+        <svg class="degree__icon" aria-hidden="true"><use href="#i-cap"/></svg>
+        <p class="degree__level">Master of Science + MBA</p>
+        <h3 class="degree__field">Advanced Data Analytics (AI) + Business Analytics</h3>
+        <p class="degree__school">University of North Texas</p>
+        <dl class="degree__facts">
+          <div><dt>Completed</dt><dd>May 2026</dd></div>
+          <div><dt>GPA</dt><dd>3.9</dd></div>
+        </dl>
+        <p class="degree__cw-h">Highlights</p>
+        <ul class="degree__cw">
+          <li>Graduate Teaching Assistant, Statistics &amp; Data Analytics (2025–26)</li><li>Mary D Endowed Scholarship, 2024–25</li>
+        </ul>
+      </article>
+      <article class="degree">
+        <svg class="degree__icon" aria-hidden="true"><use href="#i-cap"/></svg>
+        <p class="degree__level">Bachelor of Technology</p>
+        <h3 class="degree__field">Computer Science &amp; Engineering</h3>
+        <p class="degree__school">Manav Rachna University</p>
+        <dl class="degree__facts">
+          <div><dt>GPA</dt><dd>3.7</dd></div>
+        </dl>
+        <p class="degree__cw-h">Highlights</p>
+        <ul class="degree__cw">
+          <li>First author, “Speech Emotion Recognition Using LSTM” (2023)</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================================
+     SERVE LAYER
+     ====================================================================== -->
+<div class="tier tier--respond" data-tier="respond">
+
+  <section class="sec console" id="console" aria-labelledby="console-h" data-label="Résumé lakehouse">
+    <div class="sec__head">
+      <h2 id="console-h">Query my résumé like a lakehouse</h2>
+      <p class="sec__sub">Every figure on my résumé, landed as data. Step from Bronze lines to Silver fields to Gold aggregates, in Spark SQL or PySpark.</p>
+    </div>
+
+    <div class="mc">
+      <div class="mc__steps" role="tablist" aria-label="Medallion layer">
+        <button type="button" role="tab" class="mc__step" id="tab-raw" aria-controls="mcPanel" aria-selected="false" data-layer="raw"><b>Bronze</b><span>Raw résumé lines</span></button>
+        <button type="button" role="tab" class="mc__step" id="tab-parsed" aria-controls="mcPanel" aria-selected="false" data-layer="parsed"><b>Silver</b><span>Figures parsed</span></button>
+        <button type="button" role="tab" class="mc__step" id="tab-stats" aria-controls="mcPanel" aria-selected="true" data-layer="stats"><b>Gold</b><span>Grouped and counted</span></button>
+      </div>
+
+      <div class="mc__controls" id="mcControls">
+        <div class="mc__langwrap">
+          <span id="langLabel">Query language</span>
+          <div class="mc__lang" role="group" aria-labelledby="langLabel">
+            <button type="button" data-lang="sql" aria-pressed="true">Spark SQL</button>
+            <button type="button" data-lang="py" aria-pressed="false">PySpark</button>
+          </div>
+        </div>
+        <label class="mc__field">
+          <span>Source</span>
+          <select id="mcSource">
+            <option value="all">All sources</option>
+            <option value="Work">Work experience</option>
+            <option value="Project">Projects</option>
+            <option value="Education">Education</option>
+          </select>
+        </label>
+        <label class="mc__field" id="mcGroupWrap">
+          <span>Group by</span>
+          <select id="mcGroup">
+            <option value="kind">Figure type</option>
+            <option value="source">Source</option>
+            <option value="org">Organization or project</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="mc__panel" id="mcPanel" role="tabpanel" aria-labelledby="tab-stats">
+        <pre class="mc__sql" aria-label="Query for this layer"><code id="mcSql"></code></pre>
+        <p class="mc__count" id="mcCount" aria-live="polite"></p>
+        <div class="mc__tablewrap" tabindex="0" aria-label="Result table, scrolls horizontally on small screens">
+          <table class="mc__table">
+            <caption class="sr-only" id="mcCaption">Query results</caption>
+            <thead id="mcHead"></thead>
+            <tbody id="mcBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec research" id="recognition" aria-labelledby="rec-h" data-label="Research &amp; recognition">
+    <div class="sec__head">
+      <h2 id="rec-h">Research and recognition</h2>
+    </div>
+    <div class="research__grid">
+      <div class="award" aria-hidden="true">
+        <div class="award__disc">
+          <svg class="award__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 6.5C10.2 5 7.6 4.5 4 4.5v13c3.6 0 6.2.5 8 2 1.8-1.5 4.4-2 8-2v-13c-3.6 0-6.2.5-8 2Zm0 0v13"/></svg>
+          <span class="award__org">Published · 2023</span>
+        </div>
+      </div>
+      <div class="research__body">
+        <p class="research__award">First author, “Speech Emotion Recognition Using LSTM” (2023)</p>
+        <p class="research__note">Published during my B.Tech. in Computer Science &amp; Engineering at Manav Rachna University.</p>
+        <article class="paper">
+          <h3 class="paper__title">At the University of North Texas</h3>
+          <ul class="certs__list">
+            <li><b>Graduate Teaching Assistant</b>Statistics &amp; Data Analytics, 2025–26: evaluated 150+ graduate AI/ML assignments.</li>
+            <li><b>Mary D Endowed Scholarship</b>Recipient, academic year 2024–2025.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h" data-label="Contact">
+    <div class="contact__inner">
+      <h2 id="contact-h">Building GenAI or data systems? Let’s talk.</h2>
+      <p class="contact__sub">I’m based in the USA and open to relocation.</p>
+      <div class="contact__mail">
+        <a class="contact__email" href="mailto:sarikagaind27@outlook.com">sarikagaind27@outlook.com</a>
+        <button type="button" class="copy" id="copyEmail" data-copy="sarikagaind27@outlook.com">
+          <svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copy email</span>
+        </button>
+      </div>
+      <ul class="contact__list">
+        <li><svg aria-hidden="true"><use href="#i-linkedin"/></svg><a href="https://www.linkedin.com/in/sarika-gaind" target="_blank" rel="noopener">linkedin.com/in/sarika-gaind</a></li>
+        <li><svg aria-hidden="true"><use href="#i-github"/></svg><a href="https://github.com/sgaind-data" target="_blank" rel="noopener">github.com/sgaind-data</a></li>
+        <li><svg aria-hidden="true"><use href="#i-pin"/></svg><span>USA · open to relocation</span></li>
+      </ul>
+      <a class="btn btn--amber" href="Sarika-Gaind-Resume.pdf" download="Sarika-Gaind-Resume.pdf">
+        <svg aria-hidden="true"><use href="#i-download"/></svg>Download résumé
+      </a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>© <span id="year">2026</span> Sarika Gaind</p>
+    <a href="#top">Back to top</a>
+  </footer>
+</div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+
+/* ==========================================================================
+   Sarika Gaind portfolio: interactions
+   1. Layer readout (current layer + section, progress, section map)
+   2. Command palette (Ctrl/Cmd + K)
+   3. Project filter
+   4. Skills evidence toggle
+   5. Résumé lakehouse console (every row is a résumé figure)
+   6. Copy email, footer year
+   ========================================================================== */
+(() => {
+  "use strict";
+  const $  = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  /* ---------- Toast ---------- */
+  const toast = $("#toast");
+  let toastTimer;
+  function say(msg) {
+    toast.textContent = msg;
+    toast.classList.add("is-on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("is-on"), 2200);
+  }
+
+  /* ======================================================================
+     1. Layer readout
+     ====================================================================== */
+  const readout   = $("#readout");
+  const rBtn      = $("#readoutBtn");
+  const rTier     = $("#readoutTier");
+  const rSec      = $("#readoutSec");
+  const rFill     = $("#readoutFill");
+  const lineage   = $("#lineage");
+  const sections  = $$("[data-label]");
+  const tierNames = { collect: "Ingest layer", detect: "Transform layer", respond: "Serve layer" };
+  const coins     = { collect: "#11645E", detect: "#98A6C2", respond: "#E2A93B" };
+  let currentId = "";
+
+  function updateReadout() {
+    const probe = window.scrollY + window.innerHeight * 0.3;
+    let active = sections[0];
+    for (const s of sections) { if (s.getBoundingClientRect().top + window.scrollY <= probe) active = s; }
+    if (active.id !== currentId) {
+      currentId = active.id;
+      const tier = active.closest(".tier").dataset.tier;
+      rTier.textContent = tierNames[tier];
+      rSec.textContent = active.dataset.label;
+      readout.style.setProperty("--coin", coins[tier]);
+      $$("a", lineage).forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + currentId ? "true" : "false"));
+    }
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    rFill.style.setProperty("--p", max > 0 ? Math.min(1, window.scrollY / max).toFixed(3) : 0);
+  }
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) { requestAnimationFrame(() => { updateReadout(); ticking = false; }); ticking = true; }
+  }, { passive: true });
+  window.addEventListener("resize", updateReadout);
+  updateReadout();
+
+  function setLineage(open) {
+    lineage.hidden = !open;
+    rBtn.setAttribute("aria-expanded", String(open));
+    if (open) { const cur = $('a[aria-current="true"]', lineage) || $("a", lineage); cur.focus(); }
+  }
+  rBtn.addEventListener("click", () => setLineage(lineage.hidden));
+  lineage.addEventListener("click", e => { if (e.target.closest("a")) setLineage(false); });
+  document.addEventListener("click", e => { if (!lineage.hidden && !readout.contains(e.target)) setLineage(false); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && !lineage.hidden) { setLineage(false); rBtn.focus(); }
+  });
+
+  /* ======================================================================
+     2. Command palette
+     ====================================================================== */
+  const palette = $("#palette");
+  const pInput  = $("#paletteInput");
+  const pList   = $("#paletteList");
+  const items = [];
+  sections.forEach(s => items.push({ label: s.dataset.label, kind: "Section", target: s }));
+  $$(".stratum").forEach(r => items.push({ label: `${$(".stratum__title", r).textContent}, ${$(".stratum__org", r).textContent}`, kind: "Role", target: r }));
+  $$(".proj").forEach(p => items.push({ label: $(".proj__title", p).textContent, kind: "Project", target: p }));
+  $$(".alloy .chips li").forEach(c => items.push({ label: c.firstChild.textContent.trim(), kind: "Skill", target: c.closest(".alloy__row") }));
+  let results = [], sel = 0;
+
+  function renderPalette() {
+    const q = pInput.value.trim().toLowerCase();
+    results = q ? items.filter(i => i.label.toLowerCase().includes(q)) : items.filter(i => i.kind !== "Skill");
+    sel = Math.min(sel, Math.max(0, results.length - 1));
+    pList.innerHTML = results.length
+      ? results.map((r, i) => `<li role="option" id="opt-${i}" aria-selected="${i === sel}" data-i="${i}"><span>${esc(r.label)}</span><span class="kind">${r.kind}</span></li>`).join("")
+      : `<li class="empty" role="option" aria-disabled="true">Nothing matches “${esc(pInput.value)}”. Try a skill such as LangGraph or dbt.</li>`;
+    pInput.setAttribute("aria-activedescendant", results.length ? `opt-${sel}` : "");
+    const active = $(`#opt-${sel}`); if (active) active.scrollIntoView({ block: "nearest" });
+  }
+  function openPalette() {
+    if (palette.open) return;
+    setLineage(false);
+    pInput.value = ""; sel = 0; renderPalette();
+    palette.showModal(); pInput.focus();
+  }
+  function go(i) {
+    const r = results[i]; if (!r) return;
+    palette.close();
+    // Reveal a filtered-out project before jumping to it
+    if (r.target.classList.contains("proj") && r.target.hidden) { $('.filter__btn[data-f="all"]').click(); }
+    r.target.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    r.target.setAttribute("tabindex", "-1"); r.target.focus({ preventScroll: true });
+  }
+  $("#jumpBtn").addEventListener("click", openPalette);
+  $("#paletteClose").addEventListener("click", () => palette.close());
+  palette.addEventListener("click", e => { if (e.target === palette) palette.close(); });
+  pInput.addEventListener("input", () => { sel = 0; renderPalette(); });
+  pInput.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") { e.preventDefault(); sel = Math.min(results.length - 1, sel + 1); renderPalette(); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); sel = Math.max(0, sel - 1); renderPalette(); }
+    else if (e.key === "Enter") { e.preventDefault(); go(sel); }
+  });
+  pList.addEventListener("click", e => { const li = e.target.closest("li[data-i]"); if (li) go(+li.dataset.i); });
+  document.addEventListener("keydown", e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); openPalette(); }
+  });
+  if (/Mac|iPhone|iPad/.test(navigator.platform)) $(".jump kbd").textContent = "⌘ K";
+
+  /* ======================================================================
+     3. Project filter
+     ====================================================================== */
+  const fBtns = $$(".filter__btn");
+  fBtns.forEach(b => b.addEventListener("click", () => {
+    fBtns.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    const f = b.dataset.f; let shown = 0;
+    $$(".proj").forEach(p => {
+      const ok = f === "all" || p.dataset.cat.split(" ").includes(f);
+      p.hidden = !ok; if (ok) shown++;
+    });
+    $("#shelfEmpty").hidden = shown > 0;
+  }));
+
+  /* ======================================================================
+     4. Skills evidence toggle
+     ====================================================================== */
+  const evBtn = $("#evidenceToggle");
+  evBtn.addEventListener("click", () => {
+    const on = evBtn.getAttribute("aria-pressed") !== "true";
+    evBtn.setAttribute("aria-pressed", String(on));
+    evBtn.textContent = on ? "Hide where each is used" : "Show where each is used";
+    $("#alloy").classList.toggle("is-evidence", on);
+  });
+
+  /* ======================================================================
+     5. Résumé lakehouse console
+     Every row below is a figure stated on the résumé. `line` is the résumé
+     sentence it comes from; `hl` is the text highlighted in that line.
+     ====================================================================== */
+  // Résumé sentences that hold the figures below (`hl` is highlighted inside `line`)
+  const L_EVAL = "Made release decisions evidence-based for 2 GenAI chatbots (80% overall pass rate, 100% on safety and hallucination checks across 11 evaluators) by building a Python eval framework pairing rule-based metrics with LLM-as-a-judge.";
+  const L_GAP = "Isolated citation and exact-match accuracy as the top gaps (60% vs. 100% for faithfulness) by analyzing per-evaluator results.";
+  const L_RAG = "Grounded FAQ answers at 0.96 faithfulness by curating versioned documents into a vector-search RAG pipeline with citations.";
+  const L_AGENT = "Ran 4 AI agents across 4 LLM providers on one backend by contributing to a plugin-based LangGraph orchestrator with PII guardrails.";
+  const L_PBI = "Cut Power BI dashboard refresh times ~30% by engineering 10+ optimized SQL views and data models over millions of financial records in the Snowflake data warehouse, versioned in Git.";
+  const L_THEME = "Kept every figure identical across a light/dark theme rollout for 20+ Power BI dashboards by rebuilding DAX measures and reconciling values to source.";
+  const L_AZ = "Eliminated ~1,600 hours of manual work a year (10 people × 4 weeks) by building Azure pipelines with Python that collect U.S. Treasury and regulatory data from 100+ sources and store it automatically.";
+  const L_MM1 = "Delivered a production-style RAG service scoring 0.746 faithfulness and 83.8% hit@3 on a 37-question golden dataset by refactoring MetricMedic into a LangChain chain served as a FastAPI REST API in Docker.";
+  const L_MM2 = "Made every request observable (1,446 ms p50 latency, $0.05 per 100 queries) with Langfuse tracing, exposed retrieval as an MCP tool, and gated changes with 49-test CI.";
+  const L_AB1 = "Improved macro F1 by 9.6 points (0.608 → 0.704) over a tuned VADER baseline on 446 unseen listings by fine-tuning DistilBERT on 10,985 reviews.";
+  const L_AB2 = "Shipped a free in-browser demo via int8 ONNX (4× smaller, 0.704 → 0.699 F1) and a 179 req/s FastAPI service.";
+  const L_AO1 = "Turned 14,140 synthetic agent-trace events into 13,789 validated rows (140 duplicates removed, 211 quarantined, 0 null costs) by building a Databricks medallion pipeline.";
+  const L_AO2 = "Cut flagged agent-days from 4 to 2 at 1.00 recall with an Isolation Forest in MLflow and lifted a text-to-SQL agent's LLM-judge pass rate from 78% to 89%.";
+  const L_DP1 = "Modeled 98,666 orders (112,650 items) into a dbt star schema on Redshift Serverless (16 models, 90 passing tests, SCD Type 2 snapshot) at $0 cost.";
+  const L_DP2 = "Recommended a seller dispatch SLA estimated to avoid ~432 late orders at no freight cost by tracing late rates to dispatch time in an Excel what-if model on 96,470 orders.";
+  const L_DP3 = "Defined the dashboard's requirements (BRD with 10 requirements, 8 KPIs; 8 user stories across 2 Jira sprints) and signed it off through 27 UAT cases.";
+  const L_MS = "Master of Science, Advanced Data Analytics (AI) + MBA, Business Analytics | Univ. of North Texas | GPA 3.9";
+  const L_TA = "Graduate Teaching Assistant, Statistics & Data Analytics (2025–26): evaluated 150+ graduate AI/ML assignments.";
+  const L_BT = "B.Tech., Computer Science & Engg. | Manav Rachna University | GPA 3.7";
+
+  const TR = "Think Round Inc.", CR = "Crowe LLP", MM = "MetricMedic", AB = "Airbnb Review Quality", AO = "AgentOps Lakehouse", DP = "Delivery Performance Analytics";
+  const ROWS = [
+    { source: "Work", org: TR, metric: "Overall eval pass rate, 2 chatbots", value: "80%", kind: "Rate", line: L_EVAL, hl: "80% overall pass rate" },
+    { source: "Work", org: TR, metric: "Pass rate on safety and hallucination checks", value: "100%", kind: "Rate", line: L_EVAL, hl: "100% on safety and hallucination checks" },
+    { source: "Work", org: TR, metric: "Evaluators in the framework", value: "11", kind: "Count", line: L_EVAL, hl: "11 evaluators" },
+    { source: "Work", org: TR, metric: "Citation and exact-match accuracy (top gap)", value: "60%", kind: "Rate", line: L_GAP, hl: "60%" },
+    { source: "Work", org: TR, metric: "RAG faithfulness on FAQ answers", value: "0.96", kind: "Score", line: L_RAG, hl: "0.96 faithfulness" },
+    { source: "Work", org: TR, metric: "AI agents on one backend", value: "4", kind: "Count", line: L_AGENT, hl: "4 AI agents" },
+    { source: "Work", org: TR, metric: "LLM providers orchestrated", value: "4", kind: "Count", line: L_AGENT, hl: "4 LLM providers" },
+    { source: "Work", org: CR, metric: "Power BI refresh time reduction", value: "~30%", kind: "Rate", line: L_PBI, hl: "~30%" },
+    { source: "Work", org: CR, metric: "Optimized SQL views and data models", value: "10+", kind: "Count", line: L_PBI, hl: "10+ optimized SQL views" },
+    { source: "Work", org: CR, metric: "Power BI dashboards kept identical in rollout", value: "20+", kind: "Count", line: L_THEME, hl: "20+ Power BI dashboards" },
+    { source: "Work", org: CR, metric: "Manual work eliminated per year", value: "~1,600 hrs", kind: "Time", line: L_AZ, hl: "~1,600 hours" },
+    { source: "Work", org: CR, metric: "Regulatory data sources automated", value: "100+", kind: "Count", line: L_AZ, hl: "100+ sources" },
+    { source: "Project", org: MM, metric: "Faithfulness on golden dataset", value: "0.746", kind: "Score", line: L_MM1, hl: "0.746 faithfulness" },
+    { source: "Project", org: MM, metric: "Retrieval hit@3", value: "83.8%", kind: "Rate", line: L_MM1, hl: "83.8% hit@3" },
+    { source: "Project", org: MM, metric: "Golden-dataset questions", value: "37", kind: "Count", line: L_MM1, hl: "37-question" },
+    { source: "Project", org: MM, metric: "p50 latency", value: "1,446 ms", kind: "Time", line: L_MM2, hl: "1,446 ms p50 latency" },
+    { source: "Project", org: MM, metric: "Cost per 100 queries", value: "$0.05", kind: "Cost", line: L_MM2, hl: "$0.05 per 100 queries" },
+    { source: "Project", org: MM, metric: "CI tests gating changes", value: "49", kind: "Count", line: L_MM2, hl: "49-test CI" },
+    { source: "Project", org: AB, metric: "Macro F1 lift over VADER", value: "+9.6 pts", kind: "Score", line: L_AB1, hl: "9.6 points" },
+    { source: "Project", org: AB, metric: "Fine-tuned DistilBERT macro F1", value: "0.704", kind: "Score", line: L_AB1, hl: "0.704" },
+    { source: "Project", org: AB, metric: "Reviews used for fine-tuning", value: "10,985", kind: "Count", line: L_AB1, hl: "10,985 reviews" },
+    { source: "Project", org: AB, metric: "Model size reduction with int8 ONNX", value: "4×", kind: "Ratio", line: L_AB2, hl: "4× smaller" },
+    { source: "Project", org: AB, metric: "FastAPI service throughput", value: "179 req/s", kind: "Throughput", line: L_AB2, hl: "179 req/s" },
+    { source: "Project", org: AO, metric: "Validated rows from agent traces", value: "13,789", kind: "Count", line: L_AO1, hl: "13,789 validated rows" },
+    { source: "Project", org: AO, metric: "Anomaly detection recall", value: "1.00", kind: "Score", line: L_AO2, hl: "1.00 recall" },
+    { source: "Project", org: AO, metric: "Text-to-SQL LLM-judge pass rate", value: "89%", kind: "Rate", line: L_AO2, hl: "89%" },
+    { source: "Project", org: DP, metric: "Orders modeled in the star schema", value: "98,666", kind: "Count", line: L_DP1, hl: "98,666 orders" },
+    { source: "Project", org: DP, metric: "Passing dbt tests", value: "90", kind: "Count", line: L_DP1, hl: "90 passing tests" },
+    { source: "Project", org: DP, metric: "Late orders avoided by dispatch SLA", value: "~432", kind: "Count", line: L_DP2, hl: "~432 late orders" },
+    { source: "Project", org: DP, metric: "UAT cases signed off", value: "27", kind: "Count", line: L_DP3, hl: "27 UAT cases" },
+    { source: "Education", org: "University of North Texas", metric: "M.S. + MBA GPA", value: "3.9", kind: "GPA", line: L_MS, hl: "GPA 3.9" },
+    { source: "Education", org: "University of North Texas", metric: "Graduate AI/ML assignments evaluated as TA", value: "150+", kind: "Count", line: L_TA, hl: "150+" },
+    { source: "Education", org: "Manav Rachna University", metric: "B.Tech. GPA", value: "3.7", kind: "GPA", line: L_BT, hl: "GPA 3.7" }
+  ];
+
+  const K = w => `<span class="kw">${w}</span>`;
+  const S = (w, q = "'") => `<span class="str">${q}${esc(w)}${q}</span>`;
+  const F = w => `<span class="fn">${w}</span>`;
+  const C = (w, lang) => `<span class="cm">${lang === "py" ? "#" : "--"} ${esc(w)}</span>`;
+
+  const mc = {
+    layer: "stats", lang: "sql",
+    source: $("#mcSource"), group: $("#mcGroup"), groupWrap: $("#mcGroupWrap"),
+    sql: $("#mcSql"), head: $("#mcHead"), body: $("#mcBody"), count: $("#mcCount"),
+    caption: $("#mcCaption"), panel: $("#mcPanel"),
+    tabs: $$(".mc__step"), langBtns: $$(".mc__lang button")
+  };
+
+  // Query text for each medallion layer, in Spark SQL and PySpark
+  function query(layer, src, groupCol) {
+    const py = mc.lang === "py";
+    const table = layer === "raw" ? "resume.bronze_lines" : "resume.silver_figures";
+    if (py) {
+      let q = `df = (${F("spark.table")}(${S(table, '"')})`;
+      if (src !== "all") q += `\n      .${F("filter")}(F.col(${S("source", '"')}) == ${S(src, '"')})`;
+      if (layer === "raw") {
+        q = `${C("bronze: raw résumé lines that carry at least one figure", "py")}\n` + q +
+            `\n      .${F("filter")}(F.col(${S("line", '"')}).${F("rlike")}(r${S("\\d", '"')}))\n      .${F("select")}(${S("source", '"')}, ${S("org", '"')}, ${S("line", '"')}))`;
+      } else if (layer === "parsed") {
+        q = `${C("silver: one row per figure, fields extracted", "py")}\n` + q +
+            `\n      .${F("select")}(${S("source", '"')}, ${S("org", '"')}, ${S("metric", '"')}, ${S("value", '"')}, ${S("kind", '"')}))`;
+      } else {
+        q = `${C("gold: grouped and counted, your way", "py")}\n` + q +
+            `\n      .${F("groupBy")}(${S(groupCol, '"')})\n      .${F("agg")}(F.${F("count")}(${S("*", '"')}).${F("alias")}(${S("figures", '"')}),\n           F.${F("collect_list")}(${S("value", '"')}).${F("alias")}(${S("values", '"')}))\n      .${F("orderBy")}(F.${F("desc")}(${S("figures", '"')})))`;
+      }
+      return q;
+    }
+    const where = [];
+    if (src !== "all") where.push(`source = ${S(src)}`);
+    if (layer === "raw") where.push(`line ${K("RLIKE")} ${S("\\d")}`);
+    const w = where.length ? `\n${K("WHERE")}  ${where.join(`\n  ${K("AND")} `)}` : "";
+    if (layer === "raw") return `${C("bronze: raw résumé lines that carry at least one figure", "sql")}\n${K("SELECT")} source, org, line\n${K("FROM")}   ${table}${w};`;
+    if (layer === "parsed") return `${C("silver: one row per figure, fields extracted", "sql")}\n${K("SELECT")} source, org, metric, value, kind\n${K("FROM")}   ${table}${w};`;
+    return `${C("gold: grouped and counted, your way", "sql")}\n${K("SELECT")} ${groupCol},\n       ${F("COUNT")}(*) ${K("AS")} figures,\n       ${F("COLLECT_LIST")}(value) ${K("AS")} values\n${K("FROM")}   ${table}${w}\n${K("GROUP BY")} ${groupCol}\n${K("ORDER BY")} figures ${K("DESC")};`;
+  }
+
+  function renderConsole() {
+    const src = mc.source.value;
+    const rows = ROWS.filter(r => src === "all" || r.source === src);
+    mc.groupWrap.hidden = mc.layer !== "stats";
+
+    if (mc.layer === "raw") {
+      // One résumé sentence can hold several figures: show each line once
+      const seen = new Map();
+      rows.forEach(r => { if (!seen.has(r.line)) seen.set(r.line, { ...r, hls: [r.hl] }); else seen.get(r.line).hls.push(r.hl); });
+      const lines = [...seen.values()];
+      mc.sql.innerHTML = query("raw", src);
+      mc.head.innerHTML = `<tr><th scope="col">Source</th><th scope="col">Organization or project</th><th scope="col">Line</th></tr>`;
+      mc.body.innerHTML = lines.map(l => {
+        let t = esc(l.line);
+        l.hls.forEach(h => { t = t.replace(esc(h), `<mark>${esc(h)}</mark>`); });
+        return `<tr><td><span class="pill">${l.source}</span></td><td class="muted">${esc(l.org)}</td><td class="raw">${t}</td></tr>`;
+      }).join("");
+      mc.count.textContent = `${lines.length} Bronze lines landed, holding ${rows.length} figures.`;
+      mc.caption.textContent = "Bronze layer: raw résumé lines";
+    }
+
+    else if (mc.layer === "parsed") {
+      mc.sql.innerHTML = query("parsed", src);
+      mc.head.innerHTML = `<tr><th scope="col">Source</th><th scope="col">Organization or project</th><th scope="col">Metric</th><th scope="col" class="num">Value</th><th scope="col">Kind</th></tr>`;
+      mc.body.innerHTML = rows.map(r =>
+        `<tr><td><span class="pill">${r.source}</span></td><td class="muted">${esc(r.org)}</td><td>${esc(r.metric)}</td><td class="num">${esc(r.value)}</td><td class="muted">${r.kind}</td></tr>`
+      ).join("");
+      mc.count.textContent = `${rows.length} figures parsed into Silver fields.`;
+      mc.caption.textContent = "Silver layer: parsed figures";
+    }
+
+    else {
+      const g = mc.group.value;
+      const label = { kind: "Figure type", source: "Source", org: "Organization or project" }[g];
+      const groups = new Map();
+      rows.forEach(r => { const k = r[g]; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); });
+      const agg = [...groups.entries()].map(([k, list]) => ({ k, list })).sort((a, b) => b.list.length - a.list.length || a.k.localeCompare(b.k));
+      const maxN = Math.max(1, ...agg.map(a => a.list.length));
+      mc.sql.innerHTML = query("stats", src, g);
+      mc.head.innerHTML = `<tr><th scope="col">${label}</th><th scope="col">Figures</th><th scope="col">Values</th></tr>`;
+      mc.body.innerHTML = agg.map(a =>
+        `<tr><td class="grp">${esc(a.k)}</td><td><span class="bar"><i style="width:${(a.list.length / maxN) * 6}rem"></i><span class="num">${a.list.length}</span></span></td><td class="muted">${a.list.map(r => `${esc(r.metric)} <span class="num">${esc(r.value)}</span>`).join("; ")}</td></tr>`
+      ).join("");
+      mc.count.textContent = `${rows.length} figures aggregated into ${agg.length} groups.`;
+      mc.caption.textContent = `Gold layer: figures grouped by ${label.toLowerCase()}`;
+    }
+  }
+
+  function setLayer(layer, focus) {
+    mc.layer = layer;
+    mc.tabs.forEach(t => {
+      const on = t.dataset.layer === layer;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on) { mc.panel.setAttribute("aria-labelledby", t.id); if (focus) t.focus(); }
+    });
+    renderConsole();
+  }
+  mc.tabs.forEach((t, i) => {
+    t.addEventListener("click", () => setLayer(t.dataset.layer));
+    t.addEventListener("keydown", e => {
+      const d = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      setLayer(mc.tabs[(i + d + mc.tabs.length) % mc.tabs.length].dataset.layer, true);
+    });
+  });
+  mc.langBtns.forEach(b => b.addEventListener("click", () => {
+    mc.lang = b.dataset.lang;
+    mc.langBtns.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    renderConsole();
+  }));
+  mc.source.addEventListener("change", renderConsole);
+  mc.group.addEventListener("change", renderConsole);
+  setLayer("stats");
+
+  /* ======================================================================
+     6. Copy email, year
+     ====================================================================== */
+  $("#copyEmail").addEventListener("click", async e => {
+    const text = e.currentTarget.dataset.copy;
+    try { await navigator.clipboard.writeText(text); say("Email copied"); }
+    catch {
+      const ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", "");
+      ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); say("Email copied"); } catch { say(text); }
+      ta.remove();
+    }
+  });
+  $("#year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
